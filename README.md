@@ -4,7 +4,7 @@
   <img src="https://img.shields.io/badge/Written%20In-Python-blue?style=flat-square">
 </p>
 
-# wifi
+# network_scanning
 
 Close monitoring of the wifi network
 

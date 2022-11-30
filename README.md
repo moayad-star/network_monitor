@@ -14,7 +14,7 @@ Monitor IP network in direct time
 Know the IP connected to the Internet and the IP of the device that disconnected from the Internet
 with time details
 
-# screenshout
+# screenshot
 
 
 # requests

@@ -3,8 +3,8 @@ try:
     R = "\033[;31;m" #Red 
     G = "\033[;32;m" #Green
     B = "\033[;34;m" #Blue
-    W = "\033[;0;m"  #White
     Y = "\033[;33;m" #Yellow
+    W = "\033[;0;m"  #White
     
     # Module
     from os import system as UX # os >> system
@@ -37,12 +37,12 @@ try:
             IPs = IPs.readlines()
         for ip in IPs:
             if ip not in list_ips:
-                print(f"{W}>>> {Y}{ip[ip.index('for')+3:-1]} \t{W}[{G}CONNECT{W}] \t{B}TIME: {strftime('%H:%M:%S')}")
                 list_ips.append(ip)
+                print(f"{W}>>> {Y}{ip[ip.index('for')+3:-1]} \t{W}[{G}CONNECT{W}] \t{W}[{B}Total:{G}{len(list_ips)}{W}] \t{B}TIME: {Y}{strftime('%H:%M:%S')}{W}")
         for ip in list_ips:
             if ip not in IPs:
-                print(f"{W}>>> {Y}{ip[ip.index('for')+3:-1]} \t{W}[{R}DISCONNECT{W}] \t{B}TIME: {strftime('%H:%M:%S')}")
                 list_ips.remove(ip)
+                print(f"{W}>>> {Y}{ip[ip.index('for')+3:-1]} \t{W}[{R}DISCONNECT{W}] \t{W}[{B}Total:{R}{len(list_ips)}{W}] \t{B}TIME: {Y}{strftime('%H:%M:%S')}{W}")
 except KeyboardInterrupt:
     print(f"""
     {Y} User:{R} CTRL + C \n

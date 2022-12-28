@@ -15,7 +15,12 @@ try:
         print(f"{G}Download Module 'requests' ....{W}")
         UX("pip install requests && clear")
         import requests
-    
+    try:
+        import readline
+    except ModuleNotFoundError:
+        print(f"{G}Download Module 'readline' ....{W}"
+        UX("pkg i readline* && clear")
+        
     # value
     try:
         your_router_ip = input("Enter your router ip [ex: 192.168.1.1]\n>>> ")
@@ -43,7 +48,7 @@ try:
             if ip not in IPs:
                 list_ips.remove(ip)
                 print(f"{W}>>> {Y}{ip[ip.index('for')+3:-1]} \t{W}[{R}DISCONNECT{W}] \t{W}[{B}Total:{R}{len(list_ips)}{W}] \t{B}TIME: {Y}{strftime('%H:%M:%S')}{W}")
-except KeyboardInterrupt:
+except (KeyboardInterrupt,EOFError):
     print(f"""
     {Y} User:{R} CTRL + C \n
     {Y} User stop the operation \n 

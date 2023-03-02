@@ -6,10 +6,6 @@ try:
     Y = "\033[;33;m" #Yellow
     W = "\033[;0;m"  #White
     
-    # check version
-    from sys import version
-    if int(version[0]) < 3:
-        exit(f"{R}For the best experience, \nwe recommend using the latest version of Python")
     # Module
     from os import system as UX # os >> system
     from time import strftime,sleep # time >> strftime,sleep

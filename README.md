@@ -5,7 +5,7 @@
   <img src="https://img.shields.io/badge/Version-v1.0-green">
 </p>
 
-# network_scanning
+# network_monitor
 
 Close monitoring of the wifi network
 
@@ -39,10 +39,10 @@ with time details
 
 ## install
 
-> install network scanning
+> install network monitor
 
 ```
-git clone https://moayad-star/network_scanning.git
+git clone https://moayad-star/network_monitor.git
 ```
 
 > install nmap
@@ -54,13 +54,13 @@ apt install nmap
 > open the network scan file
 
 ```
-cd network_scanning
+cd network_monitor
 ```
 
 > for start scan
 
 ```
-python3 network_scanning.py
+python3 network monitor.py
 ```
 
 > for update
@@ -72,4 +72,4 @@ python3 update.py
 
 ### Issues ?
 
-Feel free to ask your issues [here!](https://github.com/moayad-star/network_scanning/issues)
+Feel free to ask your issues [here!](https://github.com/moayad-star/network_monitor/issues)

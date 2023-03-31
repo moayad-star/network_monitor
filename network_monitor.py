@@ -18,7 +18,7 @@ try:
     try:
         import readline
     except ModuleNotFoundError:
-        print(f"{G}Download Module 'readline' ....{W}"
+        print(f"{G}Download Module 'readline' ....{W}") 
         UX("pkg i readline* && clear")
         
     # value

@@ -42,7 +42,7 @@ with time details
 > install network monitor
 
 ```
-git clone https://moayad-star/network_monitor.git
+git clone https://github.com/moayad-star/network_monitor
 ```
 
 > install nmap

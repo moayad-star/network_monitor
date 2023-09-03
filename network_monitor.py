@@ -7,51 +7,63 @@ try:
     W = "\033[;0;m"  #White
     
     # Module
-    from os import system as UX # os >> system
+    from os import popen as UX # os >> popen
     from time import strftime,sleep # time >> strftime,sleep
+    from ipaddress import IPv4Address
     try:
         import requests
     except ModuleNotFoundError:
-        print(f"{G}Download Module 'requests' ....{W}")
-        UX("pip install requests && clear")
+        print(f"[{R}WARNING{W}]Download Module '{G}requests{W}' ....")
+        UX("pip install requests")
         import requests
+        print(f"{W}[{G}INFO{W}] module '{G}requsts{W}' is installed")
     try:
         import readline
     except ModuleNotFoundError:
-        print(f"{G}Download Module 'readline' ....{W}") 
-        UX("pkg i readline* && clear")
-        
-    # value
+        print(f"[{R}WARNING{W}]Download Module '{G}readline{W}' ....") 
+        UX("pkg i readline*")
+        import readline
+        print(f"{W}[{G}INFO{W}] module '{G}readline{W}' is installed")
     try:
-        your_router_ip = input("Enter your router ip [ex: 192.168.1.1]\n>>> ")
-        requests.get("http://"+your_router_ip,timeout=5)
-    except (requests.exceptions.InvalidURL,requests.exceptions.ConnectTimeout,requests.exceptions.ConnectionError,requests.exceptions.ReadTimeout):
-        print(f"""
-    {R}Unexpected error :/ \n
-    {G}Tips \n 
-    {Y}+{B} Check your internet connection \n
-    {Y}+{B} check your IP input correctly \n
-        """)
-        exit()
+        import nmap
+    except ModuleNotFoundError:
+        print(f"[{R}WARNING{W}]Download Module '{G}requests{W}' ....")
+        UX("pip install python-nmap")
+        import nmap
+        print(f"{W}[{G}INFO{W}] module '{G}nmap{W}' is installed")
+
+
+    #chick connect to network
+    try:
+        test = requests.get("http://www.google.com",timeout=5)
+    except (requests.exceptions.ConnectTimeout,requests.exceptions.ConnectionError,requests.exceptions.ReadTimeout):
+        exit(f"\n{R}You are offline!{W}")    
+
+
+    #get IPs
+    your_ip = str(UX("ifconfig | grep 'broadcast'").read()).split()[1]
+    original_ips = [your_ip]
+    common_subnet = ".".join(original_ips[0].split(".")[:3]) + ".0"
+    
+    nm = nmap.PortScanner()
     list_ips = []
     
     # start scan
+    print(f"\n\n\n{W}[{B}{strftime('%H:%M:%S')}{W}] [{G}CONNECT{W}] [{B}Total:{G}{len(list_ips)}{W}]  >>> {G}{your_ip}{W}")
+    print("-"*50)
     while True:
-        UX(f"nmap -sn {your_router_ip}/24 | grep 'for {your_router_ip[0:4]}' > wifi.txt")
-        with open("wifi.txt","r") as IPs:
-            IPs = IPs.readlines()
-        for ip in IPs:
+        nm.scan(common_subnet+"-255",arguments="-sn")
+        for ip in nm.all_hosts():
             if ip not in list_ips:
                 list_ips.append(ip)
-                print(f"{W}>>> {Y}{ip[ip.index('for')+3:-1]} \t{W}[{G}CONNECT{W}] \t{W}[{B}Total:{G}{len(list_ips)}{W}] \t{B}TIME: {Y}{strftime('%H:%M:%S')}{W}")
+                print(f"{W}[{B}{strftime('%H:%M:%S')}{W}] [{G}CONNECT{W}] [{B}Total:{G}{len(list_ips)}{W}]  >>> {Y}{ip}{W}")
         for ip in list_ips:
-            if ip not in IPs:
+            if ip not in nm.all_hosts():
                 list_ips.remove(ip)
-                print(f"{W}>>> {Y}{ip[ip.index('for')+3:-1]} \t{W}[{R}DISCONNECT{W}] \t{W}[{B}Total:{R}{len(list_ips)}{W}] \t{B}TIME: {Y}{strftime('%H:%M:%S')}{W}")
+                print(f"{W}[{B}{strftime('%H:%M:%S')}{W}] [{R}DISCONNECT{W}] [{B}Total:{G}{len(list_ips)}{W}]  >>> {G}{ip}{W}")
 except (KeyboardInterrupt,EOFError):
     print(f"""
     {Y} User:{R} CTRL + C \n
     {Y} User stop the operation \n 
     {R} Exit ...
     """)
-    UX("rm wifi.txt")

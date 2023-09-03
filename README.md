@@ -11,9 +11,7 @@ Close monitoring of the wifi network
 
 ## Description
 
-Monitor IP network in direct time
-Know the IP connected to the Internet and the IP of the device that disconnected from the Internet
-with time details
+Live IP Network Surveillance: Maintain a vigilant watch over your network in real time, providing detailed records of internet connectivity and pinpointing the exact moment devices disconnect.
 
 ## screenshot
 

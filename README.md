@@ -2,7 +2,7 @@
   <img src="https://img.shields.io/badge/Author-moayad--star-orange">
   <img src="https://img.shields.io/badge/Open%20Source-Yes-cyan?style=flat-square">
   <img src="https://img.shields.io/badge/Written%20In-Python-blue?style=flat-square">
-  <img src="https://img.shields.io/badge/Version-v2.1-green">
+  <img src="https://img.shields.io/badge/Version-v2.2-green">
 </p>
 
 # network_monitor

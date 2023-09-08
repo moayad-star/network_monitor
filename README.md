@@ -13,9 +13,9 @@ Close monitoring of the wifi network
 
 Live IP Network Surveillance: Maintain a vigilant watch over your network in real time, providing detailed records of internet connectivity and pinpointing the exact moment devices disconnect.
 
-## screenshot
+## preview
 
-![screenshot](Screenshot.jpg)
+![preview](docs/assets/preview.png)
 
 ## requests
 

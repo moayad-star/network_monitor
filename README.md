@@ -2,7 +2,7 @@
   <img src="https://img.shields.io/badge/Author-moayad--star-orange">
   <img src="https://img.shields.io/badge/Open%20Source-Yes-cyan?style=flat-square">
   <img src="https://img.shields.io/badge/Written%20In-Python-blue?style=flat-square">
-  <img src="https://img.shields.io/badge/Version-v1.0-green">
+  <img src="https://img.shields.io/badge/Version-v2.1-green">
 </p>
 
 # network_monitor
@@ -20,8 +20,8 @@ Live IP Network Surveillance: Maintain a vigilant watch over your network in rea
 ## requests
 
 * python3.x and up
-* module requests
-* nmap
+* module nmap
+* linux
 
 ## Features
 
@@ -33,7 +33,7 @@ Live IP Network Surveillance: Maintain a vigilant watch over your network in rea
 * Useful for network engineers
 * open source
 * General adjustable
-* Fast and safe
+* Fast and safe (It does not collect any information)
 
 ## install
 
@@ -41,12 +41,6 @@ Live IP Network Surveillance: Maintain a vigilant watch over your network in rea
 
 ```
 git clone https://github.com/moayad-star/network_monitor
-```
-
-> install nmap
-
-```
-apt install nmap
 ```
 
 > open the network scan file
@@ -58,7 +52,7 @@ cd network_monitor
 > for start scan
 
 ```
-python3 network monitor.py
+python3 network_monitor.py
 ```
 
 > for update

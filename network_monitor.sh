@@ -16,7 +16,7 @@ fi
 if ! command -v readline &> /dev/null
 then
     echo -e "${G}Download Module 'readline' ....${W}"
-    pkg i readline* && clear
+    apt i readline* && clear
 fi
 
 # value

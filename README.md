@@ -43,6 +43,9 @@ Live IP Network Surveillance: Maintain a vigilant watch over your network in rea
 git clone https://github.com/moayad-star/network_monitor
 ```
 
+```
+pip install python-nmap
+```
 > open the network scan file
 
 ```
